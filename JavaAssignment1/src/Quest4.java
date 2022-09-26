@@ -24,19 +24,21 @@ public class Quest4 {
 			int sum=0;
 			for(int j=0;j<c;j++) {
 				sum += arr[i][j];
-				System.out.println(sum);
+				
 				
 			}
+			System.out.println(sum);
 		}
 		
 		System.out.println("Sum of all elements of each column:");
 		for(int i=0;i<c;i++) {
 			int sum=0;
 			for(int j=0;j<r;j++) {
-				sum += arr[i][j];
-				System.out.print(sum+"\t");
+				sum += arr[j][i];
+				
 				
 			}
+			System.out.print(sum+"\t");
 		}
 		
 		
