@@ -1,10 +1,11 @@
 package bank;
 
+import java.math.BigInteger;
 import java.util.*;
 
 public class Account {
 
-	private double accountNumber;
+	private BigInteger accountNumber;
 	private String ifsc;
 	private String name;
 	private String address;
@@ -13,8 +14,8 @@ public class Account {
 	private ArrayList<String> statement = new ArrayList<String>();
 	Date date ;
 	
-	public Account(double accountNumber,String ifsc, Type type,String name,String address) {
-		this.accountNumber=accountNumber;
+	public Account(String accountNumber,String ifsc, Type type,String name,String address) {
+		this.accountNumber=new BigInteger(accountNumber);
 		this.ifsc=ifsc;
 		this.type=type;
 		this.name=name;
@@ -25,7 +26,7 @@ public class Account {
 	/**
 	 * @return the accountNumber
 	 */
-	public double getAccountNumber() {
+	public BigInteger getAccountNumber() {
 		return accountNumber;
 	}
 

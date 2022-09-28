@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -83,18 +84,21 @@ public class Bank implements bank {
 
 
 	@Override
-	public Account getAccount(long ac_no){
+	public Account getAccount(String ac_no){
 		
 		// TODO Auto-generated method stub
 		Account acc=null;
+		BigInteger temp = new BigInteger(ac_no);
 		for(Account x : accountList) {
 			
-			if(ac_no == x.getAccountNumber()) {
+			if(temp.equals( x.getAccountNumber() ) ) {
 				acc= x;
 			}
 		}
 		return acc;
 	}
+
+
 
 
 }

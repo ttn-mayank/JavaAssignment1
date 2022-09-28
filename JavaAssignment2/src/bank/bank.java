@@ -3,6 +3,8 @@
  */
 package bank;
 
+import java.math.BigInteger;
+
 /**
  * @author mayank
  *
@@ -10,7 +12,7 @@ package bank;
 public interface bank {
 	
 	//get account 
-	Account getAccount(long ac_no);
+	Account getAccount(String ac_no);
 	
 	//display bank details
 	void getDetails();
