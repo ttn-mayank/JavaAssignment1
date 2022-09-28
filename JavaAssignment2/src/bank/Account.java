@@ -104,12 +104,6 @@ public class Account {
 	}
 	
 	
-	public void deductAmount(double deduct_amount) {
-		// TODO Auto-generated method stub
-		double new_balance=balance-deduct_amount;
-		setBalance(new_balance);
-	}
-	
 	public void getAccountDetails() {
 		System.out.println("Account Number : "+getAccountNumber());
 		System.out.println("IFSC : "+getIfsc());

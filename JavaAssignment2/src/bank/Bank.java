@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigInteger;
+import java.util.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -43,6 +44,7 @@ public class Bank implements bank {
 	public boolean registerAccount(Account account) {
 		// TODO Auto-generated method stub
 		accountList.add(account);
+		setTransaction_log("Account Number - " + account.getAccountNumber() + " is registered");
 		return true;
 	}
 	
@@ -57,7 +59,7 @@ public class Bank implements bank {
 	 * @return the transaction_log
 	 */
 	public void getTransaction_log() {
-		try(Scanner scanner = new Scanner(new File("test.txt"))) {
+		try(Scanner scanner = new Scanner(new File(bankName+"_transaction_log.txt"))) {
 			while (scanner.hasNext()) {
 				System.out.println(scanner.nextLine());
 			    }
@@ -73,7 +75,7 @@ public class Bank implements bank {
 	 */
 	public void setTransaction_log(String transaction) {
 		
-		try(PrintWriter writer = new PrintWriter(new File("test.txt"))) {
+		try(PrintWriter writer = new PrintWriter(bankName+"_transaction_log.txt")) {
 			writer.println(transaction);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -98,7 +100,25 @@ public class Bank implements bank {
 		return acc;
 	}
 
-
+	@Override
+	public void deductAmount(Account acc,double deduct_amount) {
+		// TODO Auto-generated method stub
+		double bal =acc.getBalance();
+		double new_balance=bal-deduct_amount;
+		acc.setBalance(new_balance);
+		setTransaction_log("On "+new Date()+"From - "+acc.getAccountNumber()+" Balance "+bal+" Amount withdrawl - "+deduct_amount+" Left Balance - "+acc.getBalance());
+		acc.setStatement("On "+new Date()+"From - "+acc.getAccountNumber()+" Balance "+bal+" Amount withdrawl - "+deduct_amount+" Left Balance - "+acc.getBalance());
+	}
+	
+	@Override
+	public void addAmount(Account acc,double add_amount) {
+		double bal =acc.getBalance();
+		double new_balance=bal+add_amount;
+		acc.setBalance(new_balance);
+		setTransaction_log("On "+new Date()+"To - "+acc.getAccountNumber()+" Balance "+bal+" Amount deposited - "+add_amount+" New Balance - "+acc.getBalance());
+		acc.setStatement("On "+new Date()+"To - "+acc.getAccountNumber()+" Balance "+bal+" Amount deposited - "+add_amount+" New Balance - "+acc.getBalance());
+	
+	}
 
 
 }
