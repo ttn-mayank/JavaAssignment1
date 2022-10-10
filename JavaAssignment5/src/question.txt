@@ -1,0 +1,12 @@
+    1.Demonstrate the use of private methods in interfaces
+    2.Perform takeWhile and dropWhile operations on stream
+    3.Use rangeClosed to create a  Stream
+    4.Use iterator stream method to generate a stream
+    5.Use ifPresentOrElse, or, orElseThrow Operations with Optional
+    6.Convert an Optional type into Stream
+    7.Use Of method to create List, Set and Map
+    8.Demonstrate the use AutoCloseable
+    9.Create Unmodifiable List from a Steam
+    10.Demonstrate the use of repeat, strip, isBlank, indent, transform, stripIndent, translateEscapes, formatted String methods.
+    11.use record to create an immutable represent of student(name, id, age) and use its  constructor for initialization, equals to compare 2 students methods. Also keep a static counter to keep the count of objects created.
+    12.Demonstrate the use of Sealed Classes.
